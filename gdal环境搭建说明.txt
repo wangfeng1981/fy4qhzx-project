@@ -1,0 +1,9 @@
+WRITE_BOTTOMUP=[YES/NO]: Set the y-axis order for export, overriding the order detected by the driver. NetCDF files are usually assumed "bottom-up", contrary to GDAL's model which is "north up". This normally does not create a problem in the y-axis order, unless there is no y axis geo-referencing. The default for this setting is YES, so files will be exported in the NetCDF default "bottom-up" order. For import see Configuration Option GDAL_NETCDF_BOTTOMUP below.
+NetCDF格式的二维数组影像默认Y轴是反的，就是说左上角原点【0,0】的像元导出成png等格式的时候是左下角的坐标，这个规则与GDAL是矛盾的。应用GDAL_translate这类nc文件的时候需要注意，加上-co GDAL_NETCDF_BOTTOMUP=YES 或者  -co WRITE_BOTTOMUP=NO 都试一下。
+
+	
+I finally figured it out! I found that your code was a bit off for my specific case (not sure why). I used "gdal_translate -of netCDF -co WRITE_BOTTOMUP=NO <my netcdf.nc> <output.nc>" and it worked! Thank you for your help, it did sent me in the right direction.
+
+https://stackoverflow.com/questions/41145582/qgis-latitude-coordinates-are-reversed-map-upside-down
+
+ NetCDFs/GMT files use the LL corner as the origin, gdal and other raster formats use the UL. 

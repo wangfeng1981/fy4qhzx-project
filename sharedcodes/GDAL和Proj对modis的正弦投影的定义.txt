@@ -1,0 +1,22 @@
+//首先定义投影参数
+OGRSpatialReference osrs;
+osrs.importFromProj4("+proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs");
+char* sinuProj = 0;
+osrs.exportToWkt(&sinuProj);
+outds->SetProjection(sinuProj);
+CPLFree(sinuProj);
+
+//分辨率对应
+//250m ->231.6563583
+//500m ->463.3127165
+//1km  ->926.6254331
+//定义GeoTrans left top 坐标和x，y分辨率 。注意y的分辨率是负值！！ 
+double trans[6] = { 
+	5559752.5983 , 231.65635826 , 0 ,
+	7783653.6377 , 0 ,  -231.65635826  
+};
+outds->SetGeoTransform(trans);
+
+
+然后调用gdalwarp
+gdalwarp -srcnodata "-3000" -dstnodata "-3000" -t_srs EPSG:4326 demo.sinu-2.tif demo.sinu-2.wgs84.tif

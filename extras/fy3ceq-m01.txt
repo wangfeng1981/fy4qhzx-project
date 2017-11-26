@@ -1,0 +1,6 @@
+#the equation was computed by fy3bndvi(Jan 2017) vs AVHRRndvi(Jan 2017 max combined) 2017-10-11
+#slope inter eq0 use one of eq1,2,3 or (1,0) ; eq1 from bias<-0.1 ; eq2 from -0.1<bias<0.1; eq3 from bias>0.1 .
+0.9687  0.1856
+0.9687  0.1856
+1.1987  -0.0379
+0.9424  -0.1255

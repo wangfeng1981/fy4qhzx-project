@@ -1,0 +1,10 @@
+#indir
+D:/avhrr_ndvi/2017/
+#outdir
+D:/avhrr_ndvi/testing-comb/
+#method
+max
+#type
+
+#comb
+datacombinationfornoaandvi

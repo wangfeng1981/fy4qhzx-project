@@ -1,0 +1,6 @@
+#indir
+E:/testdata/ncep-wind/2017/
+#outdir
+E:/testdata/ncep-wind/nanhai-wind/
+#outprefix
+nanhai.uwind850aver.

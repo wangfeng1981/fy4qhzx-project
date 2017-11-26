@@ -1,0 +1,60 @@
+#解压缩
+tar -xvf xxx.tar
+
+#权限修改
+chmod 777 xxx
+
+#依赖项
+#gdal->proj4,geos,hdf4,hdf5,netcdf
+#    hdf4->zlib,szip,byacc,flex,libtool,jpeg6b
+
+
+#编译配置目标目录使用 ./configure --prefix=/usr/local/xxxx
+#编译配置依赖库 ./configure --with-jpeg=/usr/local/jpeg6b
+
+
+#hdf4
+./configure --prefix=/usr/local/hdf4 --with-jpeg=/usr/local/jpeg6b --with-szlib=/usr/local/szip21 --enable-shared=yes --enable-static=yes --disable-fortran --disable-netcdf
+make
+make install
+
+
+#netcdf
+NCDIR=/usr/local/netcdf
+H5DIR=/usr/local/hdf5
+CPPFLAGS=-I${H5DIR}/include LDFLAGS=-L${H5DIR}/lib ./configure --prefix=${NCDIR}
+make check
+make
+make install  # or sudo make install
+
+#GDAL
+ ./configure --with-netcdf=/usr/local/netcdf --with-hdf4=/usr/local/hdf4 --with-hdf5=/usr/local/hdf5 --with-jpeg=/usr/local/jpeg6b
+make  
+make install
+
+
+
+#测试程序
+#include <iostream>
+#include "gdal_priv.h"
+int main()
+{
+GDALAllRegister() ;
+return 0 ;
+}
+
+如果出现错误：
+error while loading shared libraries: libgdal.so.20
+需要更新动态库记录，具体操作如下：
+http://blog.csdn.net/sahusoft/article/details/7388617
+2) 如果共享库文件安装到了/usr/local/lib(很多开源的共享库都会安装到该目录下)或其它"非/lib或/usr/lib"目录下, 那么在执行ldconfig命令前, 还要把新共享库目录加入到共享库配置文件/etc/ld.so.conf中, 如下:
+# cat /etc/ld.so.conf
+include ld.so.conf.d/*.conf
+# echo "/usr/local/lib" >> /etc/ld.so.conf
+# ldconfig
+
+#gcc 4.4.7
+1.代码中fstream不接受string参数，需要使用string.c_str()
+2.不能使用nullptr
+3.GDALRWFlag::GF_Write, GDALDataType::GDT_Int32 类似这样的前面命名空间不需要写，直接写GF_Write和GDT_Int32即可。
+

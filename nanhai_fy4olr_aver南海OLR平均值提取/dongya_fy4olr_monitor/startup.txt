@@ -1,0 +1,8 @@
+#olrdir
+E:/testdata/fy4olr15min/2017/
+#pixellist
+E:/coding/fy4qhzx-project/extras/fy4-1047E-nanhai-region.txt
+#outdir
+E:/testdata/fy4olr15min/nanhai-olr/
+#outprefix
+nanhai.fy4olraver.

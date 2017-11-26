@@ -1,0 +1,10 @@
+E:\coding\fy4qhzx-project\imagebias\imagebias\bin\Debug\imagebias.exe
+E:\coding\fy4qhzx-project\imagebias\imagebias\bin\Debug\imagebias.pdb
+E:\coding\fy4qhzx-project\imagebias\imagebias\obj\Debug\imagebias.csprojResolveAssemblyReference.cache
+E:\coding\fy4qhzx-project\imagebias\imagebias\obj\Debug\imagebias.Form1.resources
+E:\coding\fy4qhzx-project\imagebias\imagebias\obj\Debug\imagebias.Properties.Resources.resources
+E:\coding\fy4qhzx-project\imagebias\imagebias\obj\Debug\imagebias.csproj.GenerateResource.Cache
+E:\coding\fy4qhzx-project\imagebias\imagebias\obj\Debug\imagebias.exe
+E:\coding\fy4qhzx-project\imagebias\imagebias\obj\Debug\imagebias.pdb
+E:\coding\fy4qhzx-project\imagebias图像检验\imagebias\obj\Debug\imagebias.exe
+E:\coding\fy4qhzx-project\imagebias图像检验\imagebias\obj\Debug\imagebias.pdb

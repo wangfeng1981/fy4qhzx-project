@@ -1,0 +1,9 @@
+//#include "ogr_spatialref.h"
+double adfGeoTrans[6] = {-180 , rx , 0 , 90 , 0 , -ry };
+OGRSpatialReference osrs;
+	char* pszSRS_WKT = 0;
+	outputBiasDataset->SetGeoTransform(adfGeoTrans);
+	osrs.SetWellKnownGeogCS("EPSG:4326");
+	osrs.exportToWkt(&pszSRS_WKT);
+	outputBiasDataset->SetProjection(pszSRS_WKT);
+	CPLFree(pszSRS_WKT);

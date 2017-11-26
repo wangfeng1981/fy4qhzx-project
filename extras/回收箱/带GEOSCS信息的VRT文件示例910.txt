@@ -1,0 +1,56 @@
+<VRTDataset rasterXSize="139" rasterYSize="859">
+  <Metadata domain="GEOLOCATION">
+    <MDI key="LINE_OFFSET">0</MDI>
+    <MDI key="LINE_STEP">1</MDI>
+    <MDI key="PIXEL_OFFSET">0</MDI>
+    <MDI key="PIXEL_STEP">1</MDI>
+    <MDI key="SRS">GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9108"]],AUTHORITY["EPSG","4326"]]</MDI>
+    <MDI key="X_BAND">1</MDI>
+    <MDI key="X_DATASET">HDF5:"E:\H2A_RM2A20130722000048_0073.h5"://data_fields/Long_of_Observation_Point</MDI>
+    <MDI key="Y_BAND">1</MDI>
+    <MDI key="Y_DATASET">HDF5:"E:\H2A_RM2A20130722000048_0073.h5"://data_fields/Lat_of_Observation_Point</MDI>
+  </Metadata>
+  <VRTRasterBand dataType="Float32" band="1">
+    <SimpleSource>
+      <SourceFilename relativeToVRT="0">HDF5:"E:\H2A_RM2A20130722000048_0073.h5"://data_fields/Res0_sst</SourceFilename>
+      <SourceBand>1</SourceBand>
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>
+
+
+-----------------------------------------------------------------------------
+
+http://gdal-dev.osgeo.narkive.com/mTtOmhqB/import-raw-binary-with-pixel-geolocation
+
+<VRTDataset rasterXSize="2048" rasterYSize="964">
+<Metadata domain="GEOLOCATION">
+<MDI key="X_DATASET">N11_part.lon.vrt</MDI>
+<MDI key="X_BAND">1</MDI>
+<MDI key="Y_DATASET">N11_part.lat.vrt</MDI>
+<MDI key="Y_BAND">1</MDI>
+<MDI key="PIXEL_OFFSET">0</MDI>
+<MDI key="LINE_OFFSET">0</MDI>
+<MDI key="PIXEL_STEP">1</MDI>
+<MDI key="LINE_STEP">1</MDI>
+</Metadata>
+<SRS>GEOGCS[&quot;WGS 72&quot;,DATUM[&quot;WGS_1972&quot;,SPHEROID[&quot;WGS 72&quot;,6378135,298.26,AUTHORITY[&quot;EPSG&quot;,&quot;7043&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6322&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.01745329251994328,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4322&quot;]]</SRS>
+<VRTRasterBand dataType="UInt16" band="1" subClass="VRTRawRasterBand">
+<ColorInterp>Red</ColorInterp>
+<SourceFilename relativetoVRT="1">N11_part.dat</SourceFilename>
+<ImageOffset>1500</ImageOffset>
+<PixelOffset>10</PixelOffset>
+<LineOffset>22180</LineOffset>
+<ByteOrder>LSB</ByteOrder>
+</VRTRasterBand>
+</VRTDataset>
+
+
+
+<VRTDataset rasterXSize="2048" rasterYSize="964">
+<SRS>GEOGCS[&quot;WGS 72&quot;,DATUM[&quot;WGS_1972&quot;,SPHEROID[&quot;WGS 72&quot;,6378135,298.26,AUTHORITY[&quot;EPSG&quot;,&quot;7043&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6322&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.01745329251994328,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4322&quot;]]</SRS>
+<VRTRasterBand dataType="Float32" band="1" subClass="VRTRawRasterBand">
+<SourceFilename relativetoVRT="1">N11_part.lat</SourceFilename>
+<ByteOrder>LSB</ByteOrder>
+</VRTRasterBand>
+</VRTDataset>

@@ -1,0 +1,9 @@
+gdalwarp -geoloc -t_srs "+proj=longlat +ellps=WGS84" -tr 0.05 0.05   -r bilinear -overwrite demo.warp.vrt demo.wgs84.tif 
+
+注意 _t_srs 后面的参数要用双引号括起来，单引号不可以！
+
+::fy4 0.05 0.05 校正到wgs84 候左上角经纬度 23.94716E 73.98172N
+::fy4                         右下角 185.447158E  74.968276S 
+::fy4 取五位小数 left 23.94716 right 185.49716 top 73.98172 btm -75.01828 samplesxlines 3231x2980
+
+注意vrt中经纬度查找表的值应该是像元的中心经纬度的值，而不是左上角经纬度。

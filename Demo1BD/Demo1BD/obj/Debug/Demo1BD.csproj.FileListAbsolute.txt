@@ -1,0 +1,5 @@
+E:\coding\fy4qhzx-project\Demo1BD\Demo1BD\bin\Debug\Demo1BD.exe
+E:\coding\fy4qhzx-project\Demo1BD\Demo1BD\bin\Debug\Demo1BD.pdb
+E:\coding\fy4qhzx-project\Demo1BD\Demo1BD\obj\Debug\Demo1BD.csprojResolveAssemblyReference.cache
+E:\coding\fy4qhzx-project\Demo1BD\Demo1BD\obj\Debug\Demo1BD.exe
+E:\coding\fy4qhzx-project\Demo1BD\Demo1BD\obj\Debug\Demo1BD.pdb

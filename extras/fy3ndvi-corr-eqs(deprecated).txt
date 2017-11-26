@@ -1,0 +1,7 @@
+#the equation was computed by fy3bndvi(May) vs AVHRRndvi(May) 2017-10-11
+#slope inter
+1	0
+0.7846	0.2745
+1.1056	-0.0207
+0.9206	-0.1258
+

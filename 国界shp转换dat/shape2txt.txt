@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Choose resolution of the data
+RES=10
+# shape file
+INFILE=ne_10m_admin_0_countries.shp
+# csv file
+CSVFILE=cborders_10m.csv
+# txt file for gnuplot
+OUTFILE=cborders_10m.txt
+
+# convert shape files to csv
+rm -f $CSVFILE
+ogr2ogr -f CSV $CSVFILE $INFILE -lco GEOMETRY=AS_WKT
+
+# remove first line
+sed '1d' $CSVFILE > $OUTFILE
+
+# remove '"LINESTRING (' at the beginning of every line
+sed -i 's/^"LINESTRING\ (//' $OUTFILE
+# remove '"MULTILINESTRING ((' at the beginning of every line
+sed -i 's/^"MULTILINESTRING\ ((//' $OUTFILE
+
+# remove '"),0,Coastline' at the end of every line
+sed -i 's/))*"\,\ *[0-9]\+\.*[0-9]*\,[A-Z][a-z]*[\ a-z]*$//' $OUTFILE
+
+#replace corresponding '),(' with 'newline'
+sed -i 's/)\,(/\n/g' $OUTFILE
+
+# double space the file (insert empty lines)
+sed -i G $OUTFILE
+
+# replace ',' with 'newline' to get the data in the right format for gnuplot
+sed -i 's/\,/\n/g' $OUTFILE

@@ -1,0 +1,42 @@
+gdalinfo fy4-sst.nc
+
+
+
+gdal_translate -of GTiff HDF5:"fy4-sst.nc"://LST fy4sst.tif
+
+gdalwarp -of GTiff fy4sst-warp-srs.vrt fy4sst-warp-srs.tif
+gdalwarp -of GTiff fy4sst-warp-nosrs.vrt fy4sst-warp-nosrs.tif
+gdalwarp -of GTiff fy4sst-warp-metasrs.vrt fy4sst-warp-metasrs.tif
+
+-r bilinear
+-r near
+-overwrite
+-tr xres yres
+
+gdalwarp -of GTiff -r bilinear -overwrite  fy4sst-warp-metasrs.vrt fy4sst-warp-metasrs-bil.tif
+
+gdalwarp -of GTiff -r bilinear -overwrite fy4sst-warp-metasrs-nodata.vrt fy4sst-warp-metasrs-bil-nodata.tif
+
+重采样0.25度
+gdalwarp -of GTiff -r bilinear -overwrite -tr 0.25 0.25 fy4sst-warp-metasrs-nodata.vrt fy4sst-warp-metasrs-bil-nodata-025.tif
+
+
+fy4sst-wgs84-0.25
+14,107 ->27.4472,47.2317  = 235.918
+oisstv2
+
+gdalwarp -of GTiff -r bilinear -overwrite -tr 0.25 0.25 fy4sst0807.nc.sst.vrt fy4sst0807.nc.sst.vrt.wgs84.tif 
+
+
+fy4坐标转换wgs84过程
+1. 找到需要提取的数据集路径和名称 类似HDF5:"fy4xxxx.nc"://SST
+gdalinfo fy4xxxx.nc 
+2. 生成vrt文件
+createfy4warpvrt hdf5:fy4sst0807.nc://sst -101:65535,-100:-100,100:100,101:65535,65535:65535 65535 fy4sst0807.nc.sst.vrt
+3. 坐标转换并重采样
+gdalwarp -of GTiff -r bilinear -overwrite -tr 0.25 0.25 fy4sst0807.nc.sst.vrt fy4sst0807.nc.sst.vrt.wgs84.tif 
+
+
+
+转fy3b ndvi
+createwarpvrt -llfile HDF5:"E:/testdata/fy3bvirrndvi/fy3b-0000.hdf"://1KM_Monthly_NDVI "E:/testdata/fy3bvirrndvi/fy3b-0000.hdf" "E:/testdata/fy3bvirrndvi/fy3b-0000.hdf.lon.tif" "E:/testdata/fy3bvirrndvi/fy3b-0000.hdf.lat.tif" -999 -32750 -32768:-32750,-32750:-32750,-32749:-32749,32750:32750 Float32
